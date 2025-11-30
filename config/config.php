@@ -1,7 +1,17 @@
 <?php
 // Helper function để đọc env vars
 function env($key, $default = '') {
-    return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: $default;
+    if (isset($_ENV[$key]) && $_ENV[$key] !== '') {
+        return $_ENV[$key];
+    }
+    if (isset($_SERVER[$key]) && $_SERVER[$key] !== '') {
+        return $_SERVER[$key];
+    }
+    $val = getenv($key);
+    if ($val !== false && $val !== '') {
+        return $val;
+    }
+    return $default;
 }
 
 // Đọc từ environment variables (Railway) hoặc dùng giá trị mặc định (localhost)
