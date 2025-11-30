@@ -1,9 +1,14 @@
 <?php
+// Helper function để đọc env vars
+function env($key, $default = '') {
+    return $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key) ?: $default;
+}
+
 // Đọc từ environment variables (Railway) hoặc dùng giá trị mặc định (localhost)
-define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
-define('DB_NAME', getenv('DB_NAME') ?: 'php_cn');
-define('DB_USER', getenv('DB_USER') ?: 'root');
-define('DB_PASS', getenv('DB_PASS') ?: '');
+define('DB_HOST', env('DB_HOST', 'localhost'));
+define('DB_NAME', env('DB_NAME', 'php_cn'));
+define('DB_USER', env('DB_USER', 'root'));
+define('DB_PASS', env('DB_PASS', ''));
 
 // Cấu hình session - giữ session 8 tiếng (28800 giây)
 define('SESSION_LIFETIME', 28800);
