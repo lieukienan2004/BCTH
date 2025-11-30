@@ -18,7 +18,12 @@ try {
         die("Cannot read SQL file");
     }
     
-    echo "SQL file loaded (" . strlen($sql) . " bytes).<br>";
+    // Replace placeholder with actual database name
+    $sql = str_replace('{{DB_NAME}}', DB_NAME, $sql);
+    // Remove USE statement since we're already connected to the database
+    $sql = preg_replace('/USE\s+\w+;/i', '', $sql);
+    
+    echo "SQL file loaded and processed (" . strlen($sql) . " bytes).<br>";
     
     // Execute SQL
     $pdo->exec($sql);
@@ -29,7 +34,8 @@ try {
     $tables = $pdo->query("SHOW TABLES")->fetchAll(PDO::FETCH_COLUMN);
     echo "<h2>Tables created:</h2><ul>";
     foreach ($tables as $table) {
-        echo "<li>$table</li>";
+        $count = $pdo->query("SELECT COUNT(*) FROM `$table`")->fetchColumn();
+        echo "<li>$table ($count rows)</li>";
     }
     echo "</ul>";
     
