@@ -25,7 +25,7 @@
             
             <!-- Logo -->
             <div class="w-36 h-36 bg-white rounded-full p-4 shadow-xl mb-6">
-                <img src="/PHP-BCTH/public/images/logoTVU.png" alt="Logo TVU" class="w-full h-full object-contain">
+                <img src="<?= $basePath ?>/images/logoTVU.png" alt="Logo TVU" class="w-full h-full object-contain">
             </div>
             
             <!-- Text -->
@@ -73,7 +73,10 @@
             <?php endif; ?>
             
             <!-- Form -->
-            <form method="POST" action="/PHP-BCTH/public/login" class="space-y-5">
+            <?php 
+            $basePath = (strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false) ? '' : '/PHP-BCTH/public';
+            ?>
+            <form method="POST" action="<?= $basePath ?>/login" class="space-y-5">
                 <!-- Username -->
                 <div>
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Tên đăng nhập</label>
@@ -351,7 +354,8 @@
             btn.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i> Đang gửi...';
             
             try {
-                const response = await fetch('/PHP-BCTH/public/auth/sendResetCode', {
+                const basePath = window.location.hostname.includes('railway.app') ? '' : '/PHP-BCTH/public';
+                const response = await fetch(basePath + '/auth/sendResetCode', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, email })
@@ -397,7 +401,7 @@
             btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Đang xác nhận...';
             
             try {
-                const response = await fetch('/PHP-BCTH/public/auth/verifyResetCode', {
+                const response = await fetch(basePath + '/auth/verifyResetCode', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
@@ -440,7 +444,7 @@
             btn.innerHTML = '<i class="bi bi-hourglass-split"></i> Đang xử lý...';
             
             try {
-                const response = await fetch('/PHP-BCTH/public/auth/resetPassword', {
+                const response = await fetch(basePath + '/auth/resetPassword', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ 
