@@ -6,6 +6,7 @@ function env($key, $default = '') {
 
 // Đọc từ environment variables (Railway) hoặc dùng giá trị mặc định (localhost)
 define('DB_HOST', env('DB_HOST', 'localhost'));
+define('DB_PORT', env('DB_PORT', '3306'));
 define('DB_NAME', env('DB_NAME', 'php_cn'));
 define('DB_USER', env('DB_USER', 'root'));
 define('DB_PASS', env('DB_PASS', ''));
