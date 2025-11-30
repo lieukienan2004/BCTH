@@ -2,11 +2,7 @@
 class Schema {
     public static function run() {
         try {
-            // Tạo database nếu chưa có
-            $root = Database::getRootConnection();
-            $root->exec('CREATE DATABASE IF NOT EXISTS `' . DB_NAME . '` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
-
-            // Kết nối database
+            // Kết nối database (Railway đã tạo sẵn database)
             $pdo = Database::getInstance();
 
             // Kiểm tra xem bảng users đã tồn tại chưa
