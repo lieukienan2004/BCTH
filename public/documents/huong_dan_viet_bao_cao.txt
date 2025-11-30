@@ -1,0 +1,50 @@
+================================================================================
+            HƯỚNG DẪN VIẾT BÁO CÁO ĐỒ ÁN TỐT NGHIỆP
+            TRƯỜNG ĐẠI HỌC TRÀ VINH - KHOA CNTT
+================================================================================
+
+1. QUY ĐỊNH VỀ HÌNH THỨC:
+
+   1.1. Font chữ: Times New Roman
+   1.2. Cỡ chữ: 13pt (nội dung), 14pt (tiêu đề)
+   1.3. Giãn dòng: 1.5 lines
+   1.4. Lề trang:
+        - Lề trái: 3.5cm
+        - Lề phải: 2cm
+        - Lề trên: 2cm
+        - Lề dưới: 2cm
+   1.5. Khổ giấy: A4
+
+2. CẤU TRÚC BÁO CÁO:
+
+   - Trang bìa
+   - Lời cảm ơn
+   - Mục lục
+   - Danh mục hình ảnh
+   - Danh mục bảng biểu
+   - Nội dung chính (5 chương)
+   - Tài liệu tham khảo
+   - Phụ lục
+
+3. QUY ĐỊNH VỀ TRÍCH DẪN:
+
+   - Sử dụng chuẩn IEEE hoặc APA
+   - Tất cả hình ảnh, bảng biểu phải có nguồn
+   - Không sao chép quá 30% từ nguồn khác
+
+4. YÊU CẦU VỀ NỘI DUNG:
+
+   - Trình bày rõ ràng, logic
+   - Có hình ảnh minh họa
+   - Code phải được format đẹp
+   - Kết quả phải có screenshot
+
+5. DEADLINE NỘP BÀI:
+
+   - Nộp bản nháp: Trước 2 tuần bảo vệ
+   - Nộp bản chính thức: Trước 1 tuần bảo vệ
+   - Nộp qua hệ thống online
+
+================================================================================
+                    © 2024 Trường Đại học Trà Vinh
+================================================================================

@@ -1,0 +1,55 @@
+================================================================================
+            MẪU SLIDE BẢO VỆ ĐỒ ÁN TỐT NGHIỆP
+            TRƯỜNG ĐẠI HỌC TRÀ VINH
+================================================================================
+
+CẤU TRÚC SLIDE (15-20 slides):
+
+SLIDE 1: TRANG BÌA
+- Tên trường, khoa
+- Tên đề tài
+- Họ tên sinh viên, MSSV
+- GVHD
+- Năm học
+
+SLIDE 2: NỘI DUNG TRÌNH BÀY
+- Danh sách các phần sẽ trình bày
+
+SLIDE 3-4: GIỚI THIỆU
+- Lý do chọn đề tài
+- Mục tiêu
+- Phạm vi
+
+SLIDE 5-6: CƠ SỞ LÝ THUYẾT
+- Công nghệ sử dụng
+- Kiến thức nền tảng
+
+SLIDE 7-10: PHÂN TÍCH THIẾT KẾ
+- Sơ đồ use case
+- Sơ đồ ERD
+- Thiết kế giao diện
+
+SLIDE 11-15: DEMO SẢN PHẨM
+- Screenshot các chức năng chính
+- Video demo (nếu có)
+
+SLIDE 16-17: KẾT QUẢ & ĐÁNH GIÁ
+- Kết quả đạt được
+- Ưu điểm, hạn chế
+
+SLIDE 18: KẾT LUẬN
+- Tổng kết
+- Hướng phát triển
+
+SLIDE 19: TÀI LIỆU THAM KHẢO
+
+SLIDE 20: CẢM ƠN
+
+================================================================================
+LƯU Ý:
+- Thời gian trình bày: 15-20 phút
+- Font chữ: Arial hoặc Calibri
+- Cỡ chữ: Tối thiểu 24pt
+- Màu sắc: Tối đa 3 màu chính
+- Hình ảnh: Rõ nét, có chú thích
+================================================================================

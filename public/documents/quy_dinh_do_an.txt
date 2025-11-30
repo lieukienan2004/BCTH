@@ -1,0 +1,70 @@
+================================================================================
+            QUY ĐỊNH THỰC HIỆN ĐỒ ÁN TỐT NGHIỆP
+            TRƯỜNG ĐẠI HỌC TRÀ VINH - KHOA CNTT
+            Năm học 2024-2025
+================================================================================
+
+CHƯƠNG I: QUY ĐỊNH CHUNG
+
+Điều 1. Đối tượng áp dụng
+- Sinh viên năm cuối ngành Công nghệ thông tin
+- Đã hoàn thành tối thiểu 120 tín chỉ
+
+Điều 2. Thời gian thực hiện
+- Thời gian: 1 học kỳ (15 tuần)
+- Đăng ký đề tài: Tuần 1-2
+- Thực hiện: Tuần 3-12
+- Nộp bài: Tuần 13
+- Bảo vệ: Tuần 14-15
+
+CHƯƠNG II: QUY ĐỊNH VỀ ĐỀ TÀI
+
+Điều 3. Yêu cầu đề tài
+- Phù hợp với chuyên ngành đào tạo
+- Có tính thực tiễn và khả thi
+- Không trùng lặp với đề tài đã thực hiện
+
+Điều 4. Đăng ký đề tài
+- Mỗi sinh viên chỉ được đăng ký 1 đề tài
+- Phải được GVHD đồng ý
+- Nộp phiếu đăng ký đúng hạn
+
+CHƯƠNG III: QUY ĐỊNH VỀ BÁO CÁO TIẾN ĐỘ
+
+Điều 5. Báo cáo tiến độ
+- Báo cáo hàng tuần cho GVHD
+- Nộp báo cáo qua hệ thống online
+- Tối thiểu 4 lần báo cáo
+
+Điều 6. Xử lý vi phạm
+- Không báo cáo đúng hạn: Trừ điểm
+- Không liên lạc với GVHD: Cảnh cáo
+- Vi phạm nghiêm trọng: Hủy đề tài
+
+CHƯƠNG IV: QUY ĐỊNH VỀ NỘP BÀI
+
+Điều 7. Hình thức nộp bài
+- Nộp online qua hệ thống
+- Bao gồm: Báo cáo PDF, Source code, Video demo
+- Deadline: 23:59 ngày quy định
+
+Điều 8. Yêu cầu sản phẩm
+- Báo cáo: Theo mẫu quy định
+- Source code: Đẩy lên GitHub
+- Video demo: 5-10 phút
+
+CHƯƠNG V: QUY ĐỊNH VỀ BẢO VỆ
+
+Điều 9. Điều kiện bảo vệ
+- Hoàn thành báo cáo tiến độ
+- Nộp bài đúng hạn
+- Được GVHD đồng ý cho bảo vệ
+
+Điều 10. Hình thức bảo vệ
+- Trình bày: 15-20 phút
+- Hỏi đáp: 10-15 phút
+- Hội đồng: 3 thành viên
+
+================================================================================
+                    © 2024 Trường Đại học Trà Vinh
+================================================================================
