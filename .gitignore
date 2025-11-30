@@ -1,5 +1,5 @@
 # Config files
-config/config.php
+# config/config.php - now safe to commit (uses env vars)
 
 # IDE
 .vscode/
