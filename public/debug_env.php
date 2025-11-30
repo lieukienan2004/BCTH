@@ -1,10 +1,25 @@
 <?php
+echo "<h1>Raw Environment Variables</h1>";
+echo "<pre>";
+echo "getenv('DB_HOST'): " . var_export(getenv('DB_HOST'), true) . "\n";
+echo "getenv('DB_PORT'): " . var_export(getenv('DB_PORT'), true) . "\n";
+echo "getenv('DB_NAME'): " . var_export(getenv('DB_NAME'), true) . "\n";
+echo "getenv('DB_USER'): " . var_export(getenv('DB_USER'), true) . "\n";
+echo "\$_ENV: " . var_export($_ENV, true) . "\n";
+echo "\$_SERVER DB vars:\n";
+foreach ($_SERVER as $k => $v) {
+    if (strpos($k, 'DB_') === 0 || strpos($k, 'MYSQL') === 0) {
+        echo "  $k: $v\n";
+    }
+}
+echo "</pre>";
+
 require_once '../config/config.php';
 
-echo "<h1>Environment Debug</h1>";
+echo "<h1>After Config Load</h1>";
 echo "<pre>";
 echo "DB_HOST: " . DB_HOST . "\n";
-echo "DB_PORT: " . (defined('DB_PORT') ? DB_PORT : 'not defined') . "\n";
+echo "DB_PORT: " . DB_PORT . "\n";
 echo "DB_NAME: " . DB_NAME . "\n";
 echo "DB_USER: " . DB_USER . "\n";
 echo "DB_PASS: " . (DB_PASS ? '***set***' : 'empty') . "\n";
