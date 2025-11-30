@@ -4,14 +4,22 @@ class Database {
     private $pdo;
 
     private function __construct() {
+        $host = DB_HOST;
         $port = defined('DB_PORT') ? DB_PORT : 3306;
-        $dsn = 'mysql:host=' . DB_HOST . ';port=' . $port . ';dbname=' . DB_NAME . ';charset=utf8mb4';
+        $dbname = DB_NAME;
+        $user = DB_USER;
+        $pass = DB_PASS;
+        
+        // Debug log
+        error_log("DB Connection: host=$host, port=$port, dbname=$dbname, user=$user");
+        
+        $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
             PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8mb4"
         ];
-        $this->pdo = new PDO($dsn, DB_USER, DB_PASS, $options);
+        $this->pdo = new PDO($dsn, $user, $pass, $options);
     }
 
     public static function getInstance(): PDO {
