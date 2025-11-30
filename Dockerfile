@@ -9,8 +9,9 @@ WORKDIR /app
 # Copy all files
 COPY . .
 
-# Expose port
+# Railway uses PORT env variable
+ENV PORT=8080
 EXPOSE 8080
 
-# Start PHP built-in server
-CMD ["php", "-S", "0.0.0.0:8080", "-t", "public"]
+# Start PHP built-in server using shell to expand $PORT
+CMD php -S 0.0.0.0:$PORT -t public
