@@ -3,6 +3,9 @@
     error_reporting(E_ALL);
     ini_set('display_errors', 1);
     
+    // Set UTF-8 encoding cho response
+    header('Content-Type: text/html; charset=utf-8');
+    
     // Bật output buffering để tránh lỗi header
     ob_start();
     

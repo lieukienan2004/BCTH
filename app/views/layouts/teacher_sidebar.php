@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $currentPage = $_GET['url'] ?? 'teacher';
 $currentPage = explode('/', $currentPage);
 $activePage = $currentPage[1] ?? 'index';
@@ -18,7 +19,7 @@ $activePage = $currentPage[1] ?? 'index';
                 <i class="bi bi-list text-xl"></i>
             </button>
             <div class="w-11 h-11 bg-white rounded-xl p-1.5 shadow-lg">
-                <img src="/PHP-BCTH/public/images/logoTVU.png" alt="TVU" class="w-full h-full object-contain">
+                <img src="<?= $basePath ?>/images/logoTVU.png" alt="TVU" class="w-full h-full object-contain">
             </div>
             <div class="flex-1">
                 <h1 class="font-bold text-base bg-gradient-to-r from-cyan-300 to-blue-300 bg-clip-text text-transparent">TVU Portal</h1>
@@ -32,7 +33,7 @@ $activePage = $currentPage[1] ?? 'index';
         <div class="flex items-center gap-3">
             <?php 
             $teacherInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
-            $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; 
+            $avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; 
             ?>
             <div class="w-14 h-14 rounded-2xl overflow-hidden border-2 border-cyan-400/50 shadow-lg bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
                 <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" 
@@ -53,19 +54,19 @@ $activePage = $currentPage[1] ?? 'index';
     <nav class="flex-1 p-4 space-y-1 overflow-y-auto custom-scrollbar">
         <p class="text-xs text-blue-400/60 uppercase tracking-wider mb-3 px-3 font-semibold">📊 Tổng quan</p>
         
-        <a href="/PHP-BCTH/public/teacher" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'index' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'index' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-speedometer2 text-lg"></i>
             <span>Dashboard</span>
         </a>
 
         <p class="text-xs text-blue-400/60 uppercase tracking-wider mt-6 mb-3 px-3 font-semibold">📚 Quản lý</p>
         
-        <a href="/PHP-BCTH/public/teacher/topics" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'topics' || $activePage == 'createTopic' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/topics" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'topics' || $activePage == 'createTopic' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-journal-bookmark-fill text-lg"></i>
             <span>Quản lý đề tài</span>
         </a>
         
-        <a href="/PHP-BCTH/public/teacher/registrations" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'registrations' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/registrations" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'registrations' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-clipboard-check-fill text-lg"></i>
             <span>Duyệt đăng ký</span>
             <?php 
@@ -74,19 +75,19 @@ $activePage = $currentPage[1] ?? 'index';
             <?php endif; ?>
         </a>
         
-        <a href="/PHP-BCTH/public/teacher/students" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'students' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/students" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'students' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-people-fill text-lg"></i>
             <span>Sinh viên hướng dẫn</span>
         </a>
         
-        <a href="/PHP-BCTH/public/teacher/progress" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'progress' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/progress" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'progress' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-graph-up-arrow text-lg"></i>
             <span>Tiến độ sinh viên</span>
         </a>
         
         <p class="text-xs text-blue-400/60 uppercase tracking-wider mt-6 mb-3 px-3 font-semibold">💬 Liên lạc</p>
         
-        <a href="/PHP-BCTH/public/teacher/messages" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'messages' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/messages" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'messages' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-envelope-fill text-lg"></i>
             <span>Tin nhắn từ SV</span>
             <?php if (isset($data['unread_messages']) && $data['unread_messages'] > 0): ?>
@@ -94,7 +95,7 @@ $activePage = $currentPage[1] ?? 'index';
             <?php endif; ?>
         </a>
         
-        <a href="/PHP-BCTH/public/teacher/sendNotificationForm" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'sendNotificationForm' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/teacher/sendNotificationForm" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'sendNotificationForm' ? 'bg-gradient-to-r from-blue-500 to-cyan-500 text-white shadow-lg shadow-blue-500/30' : 'text-blue-100 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-send-fill text-lg"></i>
             <span>Gửi thông báo</span>
         </a>
@@ -102,7 +103,7 @@ $activePage = $currentPage[1] ?? 'index';
     
     <!-- Logout Button -->
     <div class="p-4 border-t border-white/10">
-        <a href="/PHP-BCTH/public/logout" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all">
+        <a href="<?= $basePath ?>/logout" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all">
             <i class="bi bi-box-arrow-right text-lg"></i>
             <span>Đăng xuất</span>
         </a>

@@ -1,7 +1,8 @@
-<?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
-<?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
+<?php 
+include_once __DIR__ . '/../layouts/student_header.php'; 
+include_once __DIR__ . '/../layouts/student_sidebar_new.php';
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 
-<?php
 $quotes = [
     "Học tập chính là cách bạn tự trao quyền cho mình",
     "Thành công là tổng của những nỗ lực nhỏ được lặp lại mỗi ngày", 
@@ -41,14 +42,14 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
             </div>
             
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/student/notifications" class="relative p-3 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">
+                <a href="<?= $basePath ?>/student/notifications" class="relative p-3 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">
                     <i class="bi bi-bell text-xl"></i>
                     <?php if (!empty($data['notifications'])): ?>
                     <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white animate-pulse"></span>
                     <?php endif; ?>
                 </a>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -60,7 +61,6 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                 </div>
             </div>
         </div>
-        
     </header>
     
     <div class="p-6">
@@ -131,7 +131,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                 <p class="text-sm text-gray-500">Trạng thái nộp bài</p>
             </div>
         </div>
-        
+
         <!-- Main Content Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <!-- Registration Status - Takes 2 columns -->
@@ -141,7 +141,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                         <i class="bi bi-bookmark-star text-blue-500"></i>
                         Đề tài của tôi
                     </h2>
-                    <a href="/PHP-BCTH/public/student/topics" class="text-blue-600 text-sm hover:underline">Xem tất cả →</a>
+                    <a href="<?= $basePath ?>/student/topics" class="text-blue-600 text-sm hover:underline">Xem tất cả →</a>
                 </div>
                 <div class="p-6">
                     <?php if (!empty($data['my_registration'])): ?>
@@ -174,13 +174,13 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                             </div>
                         </div>
                         <div class="flex flex-col gap-2 md:w-48">
-                            <a href="/PHP-BCTH/public/student/progress" class="py-2.5 px-4 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-xl text-center transition-all">
+                            <a href="<?= $basePath ?>/student/progress" class="py-2.5 px-4 bg-green-500 hover:bg-green-600 text-white text-sm font-medium rounded-xl text-center transition-all">
                                 <i class="bi bi-graph-up mr-1"></i> Báo cáo tiến độ
                             </a>
-                            <a href="/PHP-BCTH/public/student/submission" class="py-2.5 px-4 bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium rounded-xl text-center transition-all">
+                            <a href="<?= $basePath ?>/student/submission" class="py-2.5 px-4 bg-purple-500 hover:bg-purple-600 text-white text-sm font-medium rounded-xl text-center transition-all">
                                 <i class="bi bi-cloud-upload mr-1"></i> Nộp bài
                             </a>
-                            <a href="/PHP-BCTH/public/student/contact" class="py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-xl text-center transition-all">
+                            <a href="<?= $basePath ?>/student/contact" class="py-2.5 px-4 bg-gray-100 hover:bg-gray-200 text-gray-700 text-sm font-medium rounded-xl text-center transition-all">
                                 <i class="bi bi-chat-dots mr-1"></i> Liên hệ GVHD
                             </a>
                         </div>
@@ -192,7 +192,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                         </div>
                         <h3 class="font-bold text-gray-800 mb-2">Chưa đăng ký đề tài</h3>
                         <p class="text-gray-500 mb-4">Hãy chọn một đề tài phù hợp để bắt đầu</p>
-                        <a href="/PHP-BCTH/public/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-xl hover:shadow-lg transition-all">
+                        <a href="<?= $basePath ?>/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-medium rounded-xl hover:shadow-lg transition-all">
                             <i class="bi bi-plus-circle"></i> Đăng ký ngay
                         </a>
                     </div>
@@ -207,7 +207,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                         <i class="bi bi-alarm text-red-500"></i>
                         Deadline sắp tới
                     </h2>
-                    <a href="/PHP-BCTH/public/student/calendar" class="text-blue-600 text-sm hover:underline">Xem lịch →</a>
+                    <a href="<?= $basePath ?>/student/calendar" class="text-blue-600 text-sm hover:underline">Xem lịch →</a>
                 </div>
                 <div class="p-4 space-y-3">
                     <?php
@@ -239,37 +239,37 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
         
         <!-- Quick Actions -->
         <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-6">
-            <a href="/PHP-BCTH/public/student/topics" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/topics" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-blue-200 transition-all text-center">
                 <div class="w-12 h-12 bg-blue-100 group-hover:bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-journal-bookmark text-blue-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
                 <p class="font-medium text-gray-800 text-sm">Đề tài</p>
             </a>
-            <a href="/PHP-BCTH/public/student/progress" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-green-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/progress" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-green-200 transition-all text-center">
                 <div class="w-12 h-12 bg-green-100 group-hover:bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-graph-up-arrow text-green-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
                 <p class="font-medium text-gray-800 text-sm">Tiến độ</p>
             </a>
-            <a href="/PHP-BCTH/public/student/submission" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-purple-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/submission" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-purple-200 transition-all text-center">
                 <div class="w-12 h-12 bg-purple-100 group-hover:bg-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-cloud-upload text-purple-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
                 <p class="font-medium text-gray-800 text-sm">Nộp bài</p>
             </a>
-            <a href="/PHP-BCTH/public/student/calendar" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-red-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/calendar" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-red-200 transition-all text-center">
                 <div class="w-12 h-12 bg-red-100 group-hover:bg-red-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-calendar-event text-red-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
                 <p class="font-medium text-gray-800 text-sm">Lịch</p>
             </a>
-            <a href="/PHP-BCTH/public/student/documents" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/documents" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-teal-200 transition-all text-center">
                 <div class="w-12 h-12 bg-teal-100 group-hover:bg-teal-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-file-earmark-text text-teal-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
                 <p class="font-medium text-gray-800 text-sm">Tài liệu</p>
             </a>
-            <a href="/PHP-BCTH/public/student/contact" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-pink-200 transition-all text-center">
+            <a href="<?= $basePath ?>/student/contact" class="group bg-white rounded-2xl p-4 shadow-sm border border-gray-100 hover:shadow-lg hover:border-pink-200 transition-all text-center">
                 <div class="w-12 h-12 bg-pink-100 group-hover:bg-pink-500 rounded-xl flex items-center justify-center mx-auto mb-3 transition-all">
                     <i class="bi bi-chat-dots text-pink-500 group-hover:text-white text-xl transition-all"></i>
                 </div>
@@ -286,7 +286,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                         <i class="bi bi-bell text-purple-500"></i>
                         Thông báo gần đây
                     </h2>
-                    <a href="/PHP-BCTH/public/student/notifications" class="text-blue-600 text-sm hover:underline">Xem tất cả →</a>
+                    <a href="<?= $basePath ?>/student/notifications" class="text-blue-600 text-sm hover:underline">Xem tất cả →</a>
                 </div>
                 <div class="divide-y divide-gray-100">
                     <?php if (!empty($data['notifications'])): ?>
@@ -354,7 +354,7 @@ $greeting = $hour < 12 ? '🌅 Chào buổi sáng' : ($hour < 18 ? '☀️ Chào
                         </div>
                     </div>
                 </div>
-                <a href="/PHP-BCTH/public/student/documents" class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl transition-all text-sm">
+                <a href="<?= $basePath ?>/student/documents" class="mt-6 inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl transition-all text-sm">
                     <i class="bi bi-file-earmark-text"></i>
                     Xem tài liệu hướng dẫn
                 </a>

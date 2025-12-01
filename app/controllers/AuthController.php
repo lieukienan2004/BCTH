@@ -49,7 +49,9 @@ class AuthController extends Controller {
                     $_SESSION['role'] = $user['role'];
                     
                     // Xác định URL redirect - detect environment
-                    $basePath = (strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false) ? '' : '/PHP-BCTH/public';
+                    $host = $_SERVER['HTTP_HOST'] ?? '';
+                    $isProduction = strpos($host, 'railway.app') !== false || strpos($host, 'kesug.com') !== false || strpos($host, 'epizy.com') !== false;
+                    $basePath = $isProduction ? '' : '/PHP-BCTH/public';
                     $redirectUrl = $basePath . '/';
                     switch ($user['role']) {
                         case 'admin':
@@ -94,7 +96,9 @@ class AuthController extends Controller {
     public function logout() {
         session_start();
         session_destroy();
-        $basePath = (strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false) ? '' : '/PHP-BCTH/public';
+        $host = $_SERVER['HTTP_HOST'] ?? '';
+        $isProduction = strpos($host, 'railway.app') !== false || strpos($host, 'kesug.com') !== false || strpos($host, 'epizy.com') !== false;
+        $basePath = $isProduction ? '' : '/PHP-BCTH/public';
         header('Location: ' . $basePath . '/login');
         exit;
     }

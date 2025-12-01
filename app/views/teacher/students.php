@@ -1,9 +1,10 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 <?php include_once __DIR__ . '/../layouts/teacher_sidebar.php'; ?>
 
 <?php
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
-$avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
+$avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
 ?>
 
 <main class="lg:ml-72 min-h-screen bg-gray-50">
@@ -79,7 +80,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                                     <button onclick="openNotifyModal(<?= $reg['student_id'] ?>, '<?= htmlspecialchars($reg['student_name']) ?>')" class="p-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-all" title="Gửi thông báo">
                                         <i class="bi bi-bell"></i>
                                     </button>
-                                    <a href="/PHP-BCTH/public/teacher/progress/<?= $reg['registration_id'] ?>" class="p-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-all" title="Xem tiến độ">
+                                    <a href="<?= $basePath ?>/teacher/progress/<?= $reg['registration_id'] ?>" class="p-2 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg transition-all" title="Xem tiến độ">
                                         <i class="bi bi-graph-up"></i>
                                     </a>
                                 </div>
@@ -102,7 +103,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
             <div class="bg-gradient-to-r from-blue-500 to-cyan-500 p-5 text-white">
                 <h3 class="font-bold text-lg">Gửi thông báo đến <span id="studentName"></span></h3>
             </div>
-            <form method="POST" action="/PHP-BCTH/public/teacher/sendNotification" class="p-6">
+            <form method="POST" action="<?= $basePath ?>/teacher/sendNotification" class="p-6">
                 <input type="hidden" name="student_id" id="studentId">
                 <div class="mb-4">
                     <label class="block text-sm font-semibold text-gray-700 mb-2">Tiêu đề</label>

@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -118,25 +119,25 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF
 
         <!-- Quick Actions -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-            <a href="/PHP-BCTH/public/teacher/createTopic" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl text-white shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <a href="<?= $basePath ?>/teacher/createTopic" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-2xl text-white shadow-lg shadow-emerald-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <i class="bi bi-plus-lg text-2xl"></i>
                 </div>
                 <span class="font-semibold text-sm">Tạo đề tài mới</span>
             </a>
-            <a href="/PHP-BCTH/public/teacher/registrations" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl text-white shadow-lg shadow-amber-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <a href="<?= $basePath ?>/teacher/registrations" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl text-white shadow-lg shadow-amber-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <i class="bi bi-clipboard-check text-2xl"></i>
                 </div>
                 <span class="font-semibold text-sm">Duyệt đăng ký</span>
             </a>
-            <a href="/PHP-BCTH/public/teacher/students" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <a href="<?= $basePath ?>/teacher/students" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl text-white shadow-lg shadow-blue-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <i class="bi bi-people text-2xl"></i>
                 </div>
                 <span class="font-semibold text-sm">Xem sinh viên</span>
             </a>
-            <a href="/PHP-BCTH/public/teacher/sendNotificationForm" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl text-white shadow-lg shadow-violet-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
+            <a href="<?= $basePath ?>/teacher/sendNotificationForm" class="group flex flex-col items-center gap-3 p-5 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl text-white shadow-lg shadow-violet-500/30 hover:shadow-xl hover:-translate-y-1 transition-all">
                 <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
                     <i class="bi bi-send text-2xl"></i>
                 </div>
@@ -155,7 +156,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF
                         </div>
                         Đề tài của tôi
                     </h3>
-                    <a href="/PHP-BCTH/public/teacher/topics" class="text-sm text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1">
+                    <a href="<?= $basePath ?>/teacher/topics" class="text-sm text-emerald-600 hover:text-emerald-700 font-medium flex items-center gap-1">
                         Xem tất cả <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>
@@ -166,7 +167,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF
                             <i class="bi bi-journal-x text-3xl text-gray-400"></i>
                         </div>
                         <p class="text-gray-500 mb-4">Bạn chưa có đề tài nào</p>
-                        <a href="/PHP-BCTH/public/teacher/createTopic" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition-all text-sm font-medium">
+                        <a href="<?= $basePath ?>/teacher/createTopic" class="inline-flex items-center gap-2 px-4 py-2 bg-emerald-500 text-white rounded-xl hover:bg-emerald-600 transition-all text-sm font-medium">
                             <i class="bi bi-plus-lg"></i> Tạo đề tài mới
                         </a>
                     </div>
@@ -208,7 +209,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF
                         </div>
                         Đăng ký gần đây
                     </h3>
-                    <a href="/PHP-BCTH/public/teacher/registrations" class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+                    <a href="<?= $basePath ?>/teacher/registrations" class="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
                         Xem tất cả <i class="bi bi-arrow-right"></i>
                     </a>
                 </div>

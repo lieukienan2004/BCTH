@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
 $reg = $data['registration'] ?? [];
 ?>
@@ -22,7 +23,7 @@ $reg = $data['registration'] ?? [];
         <div class="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
         <div class="relative z-10 flex items-center justify-between">
             <div class="text-white">
-                <a href="/PHP-BCTH/public/teacher/students" class="text-white/70 hover:text-white text-sm flex items-center gap-1 mb-2">
+                <a href="<?= $basePath ?>/teacher/students" class="text-white/70 hover:text-white text-sm flex items-center gap-1 mb-2">
                     <i class="bi bi-arrow-left"></i> Quay lại
                 </a>
                 <h2 class="text-2xl font-bold">Theo dõi tiến độ</h2>
@@ -164,7 +165,7 @@ $reg = $data['registration'] ?? [];
                 </h3>
             </div>
             <div class="p-6">
-                <form method="POST" action="/PHP-BCTH/public/teacher/sendNotification" class="space-y-4">
+                <form method="POST" action="<?= $basePath ?>/teacher/sendNotification" class="space-y-4">
                     <input type="hidden" name="student_id" value="<?= $reg['student_id'] ?? '' ?>">
                     <div>
                         <label class="block text-sm font-semibold text-gray-700 mb-2">Tiêu đề</label>

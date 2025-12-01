@@ -15,6 +15,11 @@
         }
     </style>
 </head>
+<?php 
+$host = $_SERVER['HTTP_HOST'] ?? '';
+$isProduction = strpos($host, 'railway.app') !== false || strpos($host, 'kesug.com') !== false || strpos($host, 'epizy.com') !== false;
+$basePath = $isProduction ? '' : '/PHP-BCTH/public';
+?>
 <body class="min-h-screen flex items-center justify-center p-4">
     
     <div class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl overflow-hidden grid lg:grid-cols-2">
@@ -73,9 +78,6 @@
             <?php endif; ?>
             
             <!-- Form -->
-            <?php 
-            $basePath = (strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false) ? '' : '/PHP-BCTH/public';
-            ?>
             <form method="POST" action="<?= $basePath ?>/login" class="space-y-5">
                 <!-- Username -->
                 <div>
@@ -289,6 +291,7 @@
 
     <script>
         let resetToken = '';
+        const basePath = window.location.hostname.includes('railway.app') ? '' : '$basePath . '';
         
         function openModal() {
             document.getElementById('forgotModal').classList.remove('hidden');
@@ -354,7 +357,6 @@
             btn.innerHTML = '<i class="bi bi-hourglass-split animate-spin"></i> Đang gửi...';
             
             try {
-                const basePath = window.location.hostname.includes('railway.app') ? '' : '/PHP-BCTH/public';
                 const response = await fetch(basePath + '/auth/sendResetCode', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },

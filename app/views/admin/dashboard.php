@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UTF-8'), 'UTF-8');
 $daysVi = ['Chủ nhật', 'Thứ hai', 'Thứ ba', 'Thứ tư', 'Thứ năm', 'Thứ sáu', 'Thứ bảy'];
 $monthsVi = ['', 'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
@@ -231,25 +232,25 @@ $monthsVi = ['', 'Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Th
             </div>
             <div class="p-6">
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <a href="/PHP-BCTH/public/admin/createUser" class="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 rounded-xl border border-blue-200 transition-all text-center">
+                    <a href="<?= $basePath ?>/admin/createUser" class="group p-4 bg-gradient-to-br from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 rounded-xl border border-blue-200 transition-all text-center">
                         <div class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <i class="bi bi-person-plus-fill text-white text-xl"></i>
                         </div>
                         <p class="font-semibold text-gray-700">Thêm người dùng</p>
                     </a>
-                    <a href="/PHP-BCTH/public/admin/topics" class="group p-4 bg-gradient-to-br from-purple-50 to-violet-50 hover:from-purple-100 hover:to-violet-100 rounded-xl border border-purple-200 transition-all text-center">
+                    <a href="<?= $basePath ?>/admin/topics" class="group p-4 bg-gradient-to-br from-purple-50 to-violet-50 hover:from-purple-100 hover:to-violet-100 rounded-xl border border-purple-200 transition-all text-center">
                         <div class="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <i class="bi bi-journal-check text-white text-xl"></i>
                         </div>
                         <p class="font-semibold text-gray-700">Duyệt đề tài</p>
                     </a>
-                    <a href="/PHP-BCTH/public/admin/users" class="group p-4 bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 rounded-xl border border-green-200 transition-all text-center">
+                    <a href="<?= $basePath ?>/admin/users" class="group p-4 bg-gradient-to-br from-green-50 to-emerald-50 hover:from-green-100 hover:to-emerald-100 rounded-xl border border-green-200 transition-all text-center">
                         <div class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <i class="bi bi-people-fill text-white text-xl"></i>
                         </div>
                         <p class="font-semibold text-gray-700">Quản lý users</p>
                     </a>
-                    <a href="/PHP-BCTH/public/admin/timeSettings" class="group p-4 bg-gradient-to-br from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 rounded-xl border border-amber-200 transition-all text-center">
+                    <a href="<?= $basePath ?>/admin/timeSettings" class="group p-4 bg-gradient-to-br from-amber-50 to-orange-50 hover:from-amber-100 hover:to-orange-100 rounded-xl border border-amber-200 transition-all text-center">
                         <div class="w-12 h-12 bg-amber-500 rounded-xl flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform">
                             <i class="bi bi-clock-fill text-white text-xl"></i>
                         </div>

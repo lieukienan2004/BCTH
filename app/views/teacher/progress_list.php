@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -60,7 +61,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF
                             <p class="text-sm text-gray-500"><?= htmlspecialchars($reg['topic_title'] ?? '') ?></p>
                             <p class="text-xs text-gray-400 mt-1">Đăng ký: <?= date('d/m/Y', strtotime($reg['registered_at'])) ?></p>
                         </div>
-                        <a href="/PHP-BCTH/public/teacher/progress/<?= $reg['registration_id'] ?>" class="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all text-sm font-medium flex items-center gap-2">
+                        <a href="<?= $basePath ?>/teacher/progress/<?= $reg['registration_id'] ?>" class="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition-all text-sm font-medium flex items-center gap-2">
                             <i class="bi bi-eye"></i> Xem tiến độ
                         </a>
                     </div>

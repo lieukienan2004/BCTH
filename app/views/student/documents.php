@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -54,9 +55,9 @@ $documents = [
                 <p class="text-white/80 text-sm">Tải xuống các biểu mẫu và tài liệu hướng dẫn</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/student/notifications" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></a>
+                <a href="<?= $basePath ?>/student/notifications" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></a>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-teal-400 to-emerald-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -172,7 +173,7 @@ $documents = [
                                     <i class="bi bi-eye"></i>
                                     <span class="hidden sm:inline">Xem</span>
                                 </button>
-                                <a href="/PHP-BCTH/public/documents/<?= $doc['file'] ?>" download 
+                                <a href="<?= $basePath ?>/documents/<?= $doc['file'] ?>" download 
                                     class="px-4 py-2 <?= $colors[0] ?> <?= $colors[3] ?> text-white rounded-lg transition-all flex items-center gap-2 shadow-lg">
                                     <i class="bi bi-download"></i>
                                     <span class="hidden sm:inline">Tải xuống</span>
@@ -196,7 +197,7 @@ $documents = [
                     <h3 class="font-bold text-xl mb-2">Cần hỗ trợ thêm?</h3>
                     <p class="text-white/80">Nếu bạn cần tài liệu khác hoặc có thắc mắc, hãy liên hệ với giảng viên hướng dẫn.</p>
                 </div>
-                <a href="/PHP-BCTH/public/student/contact" class="px-6 py-3 bg-white text-teal-600 font-semibold rounded-xl hover:bg-gray-100 transition-all flex items-center gap-2">
+                <a href="<?= $basePath ?>/student/contact" class="px-6 py-3 bg-white text-teal-600 font-semibold rounded-xl hover:bg-gray-100 transition-all flex items-center gap-2">
                     <i class="bi bi-chat-dots"></i>
                     Liên hệ ngay
                 </a>
@@ -246,10 +247,10 @@ function filterDocs() {
 
 function viewDocument(filename, title) {
     document.getElementById('modalTitle').textContent = title;
-    document.getElementById('downloadBtn').href = '/PHP-BCTH/public/documents/' + filename;
+    document.getElementById('downloadBtn').href = '$basePath . '/documents/' + filename;
     
     // Fetch and display content
-    fetch('/PHP-BCTH/public/documents/' + filename)
+    fetch('$basePath . '/documents/' + filename)
         .then(response => response.text())
         .then(content => {
             document.getElementById('modalContent').textContent = content;

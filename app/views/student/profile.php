@@ -1,9 +1,10 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF-8'), 'UTF-8');
-$avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
+$avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
 ?>
 
 <main class="lg:ml-72 min-h-screen bg-gray-50">
@@ -17,7 +18,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
             <div class="flex items-center gap-4">
                 <button class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></button>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-cyan-400 to-indigo-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -73,7 +74,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                     </div>
                     
                     <!-- Avatar Upload Form (Hidden) -->
-                    <form method="POST" action="/PHP-BCTH/public/student/uploadAvatar" enctype="multipart/form-data" id="avatarForm">
+                    <form method="POST" action="<?= $basePath ?>/student/uploadAvatar" enctype="multipart/form-data" id="avatarForm">
                         <input type="file" id="avatarInput" name="avatar" accept="image/*" class="hidden" onchange="previewAndSubmitAvatar(this)">
                     </form>
                 </div>
@@ -107,7 +108,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                         Bảo mật
                     </h3>
                     <p class="text-white/80 text-sm mb-4">Đổi mật khẩu định kỳ để bảo vệ tài khoản.</p>
-                    <a href="/PHP-BCTH/public/student/changePassword" class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl transition-all text-sm">
+                    <a href="<?= $basePath ?>/student/changePassword" class="inline-flex items-center gap-2 px-4 py-2 bg-white/20 hover:bg-white/30 rounded-xl transition-all text-sm">
                         <i class="bi bi-key"></i>
                         Đổi mật khẩu
                     </a>
@@ -124,7 +125,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                         </h2>
                     </div>
                     <div class="p-6">
-                        <form method="POST" action="/PHP-BCTH/public/student/updateProfile" class="space-y-5">
+                        <form method="POST" action="<?= $basePath ?>/student/updateProfile" class="space-y-5">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                                 <div>
                                     <label class="block text-sm font-semibold text-gray-700 mb-2">

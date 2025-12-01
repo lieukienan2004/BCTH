@@ -1,9 +1,10 @@
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
     <!-- Footer -->
     <footer class="mt-8 py-6 border-t border-gray-200 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
-                    <img src="/PHP-BCTH/public/images/logoTVU.png" alt="TVU" class="w-8 h-8 object-contain">
+                    <img src="<?= $basePath ?>/images/logoTVU.png" alt="TVU" class="w-8 h-8 object-contain">
                     <div>
                         <p class="text-sm font-semibold text-gray-700">Trường Đại học Trà Vinh</p>
                         <p class="text-xs text-gray-500">Khoa Kỹ thuật và Công nghệ</p>

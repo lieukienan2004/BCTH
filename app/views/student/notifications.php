@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -25,7 +26,7 @@ foreach ($data['notifications'] ?? [] as $n) {
             </div>
             <div class="flex items-center gap-4">
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-purple-400 to-violet-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">

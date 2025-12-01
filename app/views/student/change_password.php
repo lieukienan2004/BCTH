@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -16,7 +17,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF
             <div class="flex items-center gap-4">
                 <button class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></button>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -55,7 +56,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF
                     </h2>
                 </div>
                 <div class="p-6">
-                    <form method="POST" action="/PHP-BCTH/public/student/changePassword" class="space-y-5">
+                    <form method="POST" action="<?= $basePath ?>/student/changePassword" class="space-y-5">
                         <div>
                             <label class="block text-sm font-semibold text-gray-700 mb-2">
                                 <i class="bi bi-key text-gray-400 mr-1"></i>Mật khẩu hiện tại <span class="text-red-500">*</span>
@@ -114,7 +115,7 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF
                                 <i class="bi bi-check-lg"></i>
                                 Đổi mật khẩu
                             </button>
-                            <a href="/PHP-BCTH/public/student/profile" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all flex items-center justify-center">
+                            <a href="<?= $basePath ?>/student/profile" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all flex items-center justify-center">
                                 Hủy
                             </a>
                         </div>

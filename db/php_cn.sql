@@ -5,8 +5,6 @@
 -- Ngày: 09/11/2025
 -- ============================================
 
-USE {{DB_NAME}};
-
 -- Set charset UTF-8
 SET NAMES utf8mb4;
 SET CHARACTER SET utf8mb4;

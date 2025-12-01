@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UTF-8'), 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -25,7 +26,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                 <div class="flex items-center gap-2 mb-1"><span class="text-xl">👥</span><h2 class="text-xl font-bold">Quản lý người dùng</h2></div>
                 <p class="text-white/80 text-sm">Quản lý tài khoản sinh viên, giảng viên và admin</p>
             </div>
-            <a href="/PHP-BCTH/public/admin/createUser" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-xl transition-all flex items-center gap-2">
+            <a href="<?= $basePath ?>/admin/createUser" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-xl transition-all flex items-center gap-2">
                 <i class="bi bi-plus-circle"></i> Thêm người dùng
             </a>
         </div>
@@ -85,7 +86,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
 
         <!-- Filter -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-6">
-            <form method="GET" action="/PHP-BCTH/public/admin/users" class="flex flex-col lg:flex-row gap-4">
+            <form method="GET" action="<?= $basePath ?>/admin/users" class="flex flex-col lg:flex-row gap-4">
                 <div class="flex-1">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Vai trò</label>
                     <select name="role" class="w-full px-4 py-3 bg-gray-50 border-2 border-gray-200 rounded-xl focus:border-amber-500 focus:bg-white outline-none transition-all">
@@ -105,7 +106,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                     <button type="submit" class="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-semibold rounded-xl shadow-lg transition-all">
                         <i class="bi bi-search mr-2"></i>Tìm
                     </button>
-                    <a href="/PHP-BCTH/public/admin/users" class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all">
+                    <a href="<?= $basePath ?>/admin/users" class="px-4 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all">
                         <i class="bi bi-x-lg"></i>
                     </a>
                 </div>
@@ -160,7 +161,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                             <td class="px-6 py-4 text-gray-600"><?= date('d/m/Y', strtotime($user['created_at'])) ?></td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center justify-center gap-2">
-                                    <a href="/PHP-BCTH/public/admin/editUser/<?= $user['user_id'] ?>" 
+                                    <a href="<?= $basePath ?>/admin/editUser/<?= $user['user_id'] ?>" 
                                         class="p-2 bg-amber-100 hover:bg-amber-200 text-amber-600 rounded-lg transition-all" title="Sửa">
                                         <i class="bi bi-pencil"></i>
                                     </a>
@@ -223,7 +224,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
 function openDeleteModal(userId, fullName, username) {
     document.getElementById('deleteUserName').textContent = fullName;
     document.getElementById('deleteUserUsername').textContent = '@' + username;
-    document.getElementById('deleteLink').href = '/PHP-BCTH/public/admin/deleteUser/' + userId;
+    document.getElementById('deleteLink').href = '$basePath . '/admin/deleteUser/' + userId;
     document.getElementById('deleteModal').classList.remove('hidden');
 }
 function closeDeleteModal() {

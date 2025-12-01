@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UTF-8'), 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -141,11 +142,11 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                                         <i class="bi bi-eye"></i>
                                     </button>
                                     <?php if ($topic['status'] === 'pending'): ?>
-                                    <a href="/PHP-BCTH/public/admin/approveTopic/<?= $topic['topic_id'] ?>" 
+                                    <a href="<?= $basePath ?>/admin/approveTopic/<?= $topic['topic_id'] ?>" 
                                         class="p-2 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg transition-all" title="Duyệt">
                                         <i class="bi bi-check-lg"></i>
                                     </a>
-                                    <a href="/PHP-BCTH/public/admin/rejectTopic/<?= $topic['topic_id'] ?>" 
+                                    <a href="<?= $basePath ?>/admin/rejectTopic/<?= $topic['topic_id'] ?>" 
                                         onclick="return confirm('Bạn có chắc muốn từ chối đề tài này?')"
                                         class="p-2 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg transition-all" title="Từ chối">
                                         <i class="bi bi-x-lg"></i>

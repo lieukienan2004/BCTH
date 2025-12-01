@@ -1,9 +1,10 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 <?php include_once __DIR__ . '/../layouts/teacher_sidebar.php'; ?>
 
 <?php
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
-$avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
+$avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
 ?>
 
 <main class="lg:ml-72 min-h-screen bg-gray-50">
@@ -15,7 +16,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                 <p class="text-white/80 text-sm">Gửi thông báo đến sinh viên của bạn</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/teacher/students" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
+                <a href="<?= $basePath ?>/teacher/students" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
                     <i class="bi bi-arrow-left"></i> Quay lại
                 </a>
             </div>
@@ -40,7 +41,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                         </h3>
                     </div>
                     <div class="p-6">
-                        <form method="POST" action="/PHP-BCTH/public/teacher/sendNotification" class="space-y-5">
+                        <form method="POST" action="<?= $basePath ?>/teacher/sendNotification" class="space-y-5">
                             <div>
                                 <label class="block text-sm font-semibold text-gray-700 mb-2">
                                     Gửi đến <span class="text-red-500">*</span>
@@ -84,7 +85,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                                 <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold rounded-xl shadow-lg shadow-blue-500/30 transition-all flex items-center justify-center gap-2">
                                     <i class="bi bi-send-fill"></i> Gửi thông báo
                                 </button>
-                                <a href="/PHP-BCTH/public/teacher/students" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all flex items-center justify-center">
+                                <a href="<?= $basePath ?>/teacher/students" class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all flex items-center justify-center">
                                     Hủy
                                 </a>
                             </div>

@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UTF-8'), 'UTF-8');
 ?>
 <!DOCTYPE html>
@@ -124,7 +125,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                             class="flex-1 py-2.5 bg-amber-100 hover:bg-amber-200 text-amber-700 font-medium rounded-xl transition-all flex items-center justify-center gap-2">
                             <i class="bi bi-pencil"></i> Sửa
                         </button>
-                        <a href="/PHP-BCTH/public/admin/deleteTimeSetting/<?= $setting['setting_id'] ?>" 
+                        <a href="<?= $basePath ?>/admin/deleteTimeSetting/<?= $setting['setting_id'] ?>" 
                             onclick="return confirm('Bạn có chắc muốn xóa cài đặt này?')"
                             class="py-2.5 px-4 bg-red-100 hover:bg-red-200 text-red-700 font-medium rounded-xl transition-all flex items-center justify-center">
                             <i class="bi bi-trash"></i>
@@ -162,7 +163,7 @@ $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UT
                     Thêm cài đặt thời gian
                 </h3>
             </div>
-            <form id="timeForm" method="POST" action="/PHP-BCTH/public/admin/saveTimeSetting" class="p-6 space-y-4">
+            <form id="timeForm" method="POST" action="<?= $basePath ?>/admin/saveTimeSetting" class="p-6 space-y-4">
                 <input type="hidden" name="setting_id" id="settingId">
                 
                 <div>

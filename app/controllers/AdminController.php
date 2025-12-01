@@ -18,6 +18,9 @@ class AdminController extends Controller {
             session_start();
         }
         
+        // Detect environment - Railway hoặc localhost
+        $basePath = (strpos($_SERVER['HTTP_HOST'] ?? '', 'railway.app') !== false) ? '' : '/PHP-BCTH/public';
+        
         // Kiểm tra session hết hạn hoặc chưa đăng nhập
         if (!isset($_SESSION['user_id'])) {
             // Xóa toàn bộ session cũ
@@ -27,7 +30,7 @@ class AdminController extends Controller {
             // Bắt đầu session mới để lưu thông báo lỗi
             session_start();
             $_SESSION['error'] = 'Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.';
-            header('Location: /PHP-BCTH/public/auth/login');
+            header('Location: ' . $basePath . '/auth/login');
             exit;
         }
         
@@ -38,13 +41,13 @@ class AdminController extends Controller {
             // Redirect về trang phù hợp với role hiện tại
             switch ($role) {
                 case 'student':
-                    header('Location: /PHP-BCTH/public/student');
+                    header('Location: ' . $basePath . '/student');
                     break;
                 case 'teacher':
-                    header('Location: /PHP-BCTH/public/teacher');
+                    header('Location: ' . $basePath . '/teacher');
                     break;
                 default:
-                    header('Location: /PHP-BCTH/public/auth/login');
+                    header('Location: ' . $basePath . '/auth/login');
             }
             exit;
         }

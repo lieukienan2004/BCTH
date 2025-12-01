@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -23,7 +24,7 @@ $hasSubmission = !empty($data['submission']);
             <div class="flex items-center gap-4">
                 <button class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></button>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-purple-400 to-pink-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -72,7 +73,7 @@ $hasSubmission = !empty($data['submission']);
                         </h2>
                     </div>
                     <div class="p-6">
-                        <form method="POST" action="/PHP-BCTH/public/student/submitProject" class="space-y-5">
+                        <form method="POST" action="<?= $basePath ?>/student/submitProject" class="space-y-5">
                             <input type="hidden" name="registration_id" value="<?= $data['registration']['registration_id'] ?>">
                             
                             <!-- Google Drive Link -->
@@ -204,7 +205,7 @@ $hasSubmission = !empty($data['submission']);
                             <span class="text-sm font-medium text-gray-700">GitHub</span>
                             <i class="bi bi-box-arrow-up-right text-gray-400 ml-auto"></i>
                         </a>
-                        <a href="/PHP-BCTH/public/student/documents" class="flex items-center gap-3 p-3 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
+                        <a href="<?= $basePath ?>/student/documents" class="flex items-center gap-3 p-3 bg-gray-50 hover:bg-gray-100 rounded-xl transition-all">
                             <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                                 <i class="bi bi-file-earmark-text text-blue-600"></i>
                             </div>
@@ -223,7 +224,7 @@ $hasSubmission = !empty($data['submission']);
             </div>
             <h3 class="font-bold text-amber-800 text-xl mb-2">Bạn chưa đăng ký đề tài</h3>
             <p class="text-amber-700 mb-4">Vui lòng đăng ký đề tài trước khi nộp bài</p>
-            <a href="/PHP-BCTH/public/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-xl transition-all">
+            <a href="<?= $basePath ?>/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-xl transition-all">
                 <i class="bi bi-journal-plus"></i> Đăng ký đề tài ngay
             </a>
         </div>

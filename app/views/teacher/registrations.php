@@ -1,9 +1,10 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 <?php include_once __DIR__ . '/../layouts/teacher_sidebar.php'; ?>
 
 <?php
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
-$avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
+$avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
 ?>
 
 <main class="lg:ml-72 min-h-screen bg-gray-50">
@@ -90,12 +91,12 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                                 <td class="px-6 py-4 text-sm text-gray-500"><?= date('d/m/Y', strtotime($reg['registered_at'])) ?></td>
                                 <td class="px-6 py-4">
                                     <div class="flex gap-2">
-                                        <a href="/PHP-BCTH/public/teacher/approveRegistration/<?= $reg['registration_id'] ?>" 
+                                        <a href="<?= $basePath ?>/teacher/approveRegistration/<?= $reg['registration_id'] ?>" 
                                            onclick="return confirm('Chấp nhận sinh viên <?= $reg['student_name'] ?>?')"
                                            class="px-3 py-1.5 bg-green-500 hover:bg-green-600 text-white text-sm rounded-lg transition-all">
                                             <i class="bi bi-check-lg"></i> Duyệt
                                         </a>
-                                        <a href="/PHP-BCTH/public/teacher/rejectRegistration/<?= $reg['registration_id'] ?>" 
+                                        <a href="<?= $basePath ?>/teacher/rejectRegistration/<?= $reg['registration_id'] ?>" 
                                            onclick="return confirm('Từ chối sinh viên <?= $reg['student_name'] ?>?')"
                                            class="px-3 py-1.5 bg-red-500 hover:bg-red-600 text-white text-sm rounded-lg transition-all">
                                             <i class="bi bi-x-lg"></i> Từ chối
@@ -144,7 +145,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                                 <td class="px-6 py-4 text-sm text-gray-500"><?= $reg['student_email'] ?></td>
                                 <td class="px-6 py-4 text-sm text-gray-700"><?= $reg['topic_title'] ?></td>
                                 <td class="px-6 py-4">
-                                    <a href="/PHP-BCTH/public/teacher/progress/<?= $reg['registration_id'] ?>" class="px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-lg transition-all">
+                                    <a href="<?= $basePath ?>/teacher/progress/<?= $reg['registration_id'] ?>" class="px-3 py-1.5 bg-blue-500 hover:bg-blue-600 text-white text-sm rounded-lg transition-all">
                                         <i class="bi bi-eye"></i> Xem tiến độ
                                     </a>
                                 </td>

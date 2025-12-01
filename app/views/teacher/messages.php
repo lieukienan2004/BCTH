@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $teacherInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
 $messages = $data['messages'] ?? [];
 $unreadCount = count(array_filter($messages, fn($m) => !$m['is_read']));
@@ -44,7 +45,7 @@ $unreadCount = count(array_filter($messages, fn($m) => !$m['is_read']));
                 <p class="text-white/80 text-sm">Xem và phản hồi tin nhắn từ sinh viên</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/teacher/messages" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl">
+                <a href="<?= $basePath ?>/teacher/messages" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl">
                     <i class="bi bi-arrow-clockwise text-xl"></i>
                 </a>
             </div>
@@ -149,12 +150,12 @@ $unreadCount = count(array_filter($messages, fn($m) => !$m['is_read']));
                                     <i class="bi bi-reply mr-1"></i>Phản hồi
                                 </button>
                                 <?php if (!$msg['is_read']): ?>
-                                <a href="/PHP-BCTH/public/teacher/markMessageRead/<?= $msg['notification_id'] ?>" 
+                                <a href="<?= $basePath ?>/teacher/markMessageRead/<?= $msg['notification_id'] ?>" 
                                     class="px-3 py-1.5 bg-green-100 hover:bg-green-200 text-green-700 text-sm font-medium rounded-lg transition-all">
                                     <i class="bi bi-check2 mr-1"></i>Đánh dấu đã đọc
                                 </a>
                                 <?php endif; ?>
-                                <a href="/PHP-BCTH/public/teacher/deleteMessage/<?= $msg['notification_id'] ?>" 
+                                <a href="<?= $basePath ?>/teacher/deleteMessage/<?= $msg['notification_id'] ?>" 
                                     onclick="return confirm('Bạn có chắc muốn xóa tin nhắn này?')"
                                     class="px-3 py-1.5 bg-red-100 hover:bg-red-200 text-red-700 text-sm font-medium rounded-lg transition-all ml-auto">
                                     <i class="bi bi-trash"></i>
@@ -225,7 +226,7 @@ $unreadCount = count(array_filter($messages, fn($m) => !$m['is_read']));
                 </h3>
                 <p id="replyToName" class="text-white/80 text-sm mt-1"></p>
             </div>
-            <form method="POST" action="/PHP-BCTH/public/teacher/replyMessage" class="p-6 space-y-4">
+            <form method="POST" action="<?= $basePath ?>/teacher/replyMessage" class="p-6 space-y-4">
                 <input type="hidden" name="student_id" id="replyStudentId">
                 
                 <div>

@@ -1,9 +1,10 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 <?php include_once __DIR__ . '/../layouts/teacher_sidebar.php'; ?>
 
 <?php
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
-$avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
+$avatarPath = '$basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg';
 ?>
 
 <main class="lg:ml-72 min-h-screen bg-gray-50">
@@ -15,7 +16,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                 <p class="text-white/80 text-sm">Tạo và quản lý các đề tài đồ án</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/teacher/createTopic" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
+                <a href="<?= $basePath ?>/teacher/createTopic" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
                     <i class="bi bi-plus-circle"></i> Tạo đề tài mới
                 </a>
                 <div class="relative pl-4 border-l border-white/20">
@@ -62,7 +63,7 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                 </div>
                 <h3 class="text-xl font-semibold text-gray-800 mb-2">Chưa có đề tài nào</h3>
                 <p class="text-gray-500 mb-6">Hãy tạo đề tài đầu tiên của bạn!</p>
-                <a href="/PHP-BCTH/public/teacher/createTopic" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">
+                <a href="<?= $basePath ?>/teacher/createTopic" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-xl transition-all">
                     <i class="bi bi-plus-circle"></i> Tạo đề tài mới
                 </a>
             </div>
@@ -106,10 +107,10 @@ $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'de
                             </td>
                             <td class="px-6 py-4 text-center">
                                 <div class="flex justify-center gap-2">
-                                    <a href="/PHP-BCTH/public/teacher/editTopic/<?= $topic['topic_id'] ?>" class="p-2 bg-amber-100 hover:bg-amber-200 text-amber-600 rounded-lg transition-all" title="Sửa">
+                                    <a href="<?= $basePath ?>/teacher/editTopic/<?= $topic['topic_id'] ?>" class="p-2 bg-amber-100 hover:bg-amber-200 text-amber-600 rounded-lg transition-all" title="Sửa">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a href="/PHP-BCTH/public/teacher/deleteTopic/<?= $topic['topic_id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa đề tài này?')" class="p-2 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg transition-all" title="Xóa">
+                                    <a href="<?= $basePath ?>/teacher/deleteTopic/<?= $topic['topic_id'] ?>" onclick="return confirm('Bạn có chắc muốn xóa đề tài này?')" class="p-2 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg transition-all" title="Xóa">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </div>

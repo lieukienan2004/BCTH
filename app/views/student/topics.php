@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -17,9 +18,9 @@ $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF
                 <p class="text-white/80 text-sm"><?= $daysVi[date('w')] ?>, <?= date('d') ?> <?= $monthsVi[intval(date('m'))] ?> <?= date('Y') ?></p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/student/notifications" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></a>
+                <a href="<?= $basePath ?>/student/notifications" class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></a>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-cyan-400 to-blue-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -487,7 +488,7 @@ function toggleFavorite(topicId, btn) {
     });
     
     // Save to session via AJAX
-    fetch('/PHP-BCTH/public/student/toggleFavorite/' + topicId, { method: 'POST' });
+    fetch('$basePath . '/student/toggleFavorite/' + topicId, { method: 'POST' });
     
     updateCounts();
     if (currentFilter === 'favorites') filterTopics();
@@ -497,7 +498,7 @@ function toggleFavorite(topicId, btn) {
 function openRegisterModal(topicId, title, teacher) {
     document.getElementById('modalTopicTitle').textContent = title;
     document.getElementById('modalTeacherName').textContent = teacher;
-    document.getElementById('registerForm').action = '/PHP-BCTH/public/student/register/' + topicId;
+    document.getElementById('registerForm').action = '$basePath . '/student/register/' + topicId;
     document.getElementById('registerModal').classList.remove('hidden');
     document.body.style.overflow = 'hidden';
 }

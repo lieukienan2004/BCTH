@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -18,7 +19,7 @@ $progressPercent = min(100, $progressCount * 25);
             <div class="flex items-center gap-4">
                 <button class="relative p-2 text-white/80 hover:text-white hover:bg-white/10 rounded-xl"><i class="bi bi-bell text-xl"></i></button>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -107,7 +108,7 @@ $progressPercent = min(100, $progressCount * 25);
             <div class="bg-gradient-to-r from-green-500 to-emerald-500 px-6 py-4">
                 <h2 class="text-white font-bold flex items-center gap-2"><i class="bi bi-plus-circle"></i> Thêm báo cáo tiến độ mới</h2>
             </div>
-            <form method="POST" action="/PHP-BCTH/public/student/addProgress" class="p-6">
+            <form method="POST" action="<?= $basePath ?>/student/addProgress" class="p-6">
                 <input type="hidden" name="registration_id" value="<?= $data['registration']['registration_id'] ?>">
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                     <div>
@@ -211,7 +212,7 @@ $progressPercent = min(100, $progressCount * 25);
             </div>
             <h3 class="font-bold text-amber-800 text-xl mb-2">Bạn chưa đăng ký đề tài</h3>
             <p class="text-amber-700 mb-4">Vui lòng đăng ký đề tài trước khi báo cáo tiến độ</p>
-            <a href="/PHP-BCTH/public/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-xl transition-all">
+            <a href="<?= $basePath ?>/student/topics" class="inline-flex items-center gap-2 px-6 py-3 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-xl transition-all">
                 <i class="bi bi-journal-plus"></i> Đăng ký đề tài ngay
             </a>
         </div>

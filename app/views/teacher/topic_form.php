@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $teacherInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'G', 0, 1, 'UTF-8'), 'UTF-8');
 $isEdit = ($data['action'] ?? 'create') === 'edit';
 $topic = $data['topic'] ?? [];
@@ -40,7 +41,7 @@ $topic = $data['topic'] ?? [];
                 </div>
                 <p class="text-white/80 text-sm"><?= $isEdit ? 'Cập nhật thông tin đề tài' : 'Thêm đề tài mới cho sinh viên đăng ký' ?></p>
             </div>
-            <a href="/PHP-BCTH/public/teacher/topics" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
+            <a href="<?= $basePath ?>/teacher/topics" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-xl transition-all flex items-center gap-2">
                 <i class="bi bi-arrow-left"></i>
                 <span>Quay lại</span>
             </a>
@@ -114,7 +115,7 @@ $topic = $data['topic'] ?? [];
                             <i class="bi bi-check-lg"></i>
                             <?= $isEdit ? 'Cập nhật đề tài' : 'Tạo đề tài' ?>
                         </button>
-                        <a href="/PHP-BCTH/public/teacher/topics" 
+                        <a href="<?= $basePath ?>/teacher/topics" 
                             class="px-6 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-xl transition-all flex items-center justify-center gap-2">
                             <i class="bi bi-x-lg"></i>
                             Hủy

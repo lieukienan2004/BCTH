@@ -1,4 +1,5 @@
 <?php include_once __DIR__ . '/../layouts/student_header.php'; ?>
+<?php $basePath = defined('BASE_PATH') ? BASE_PATH : ''; ?>
 <?php include_once __DIR__ . '/../layouts/student_sidebar_new.php'; ?>
 
 <?php
@@ -52,9 +53,9 @@ $progressPercent = count($steps) > 0 ? round(($completedSteps / count($steps)) *
                 <p class="text-white/80 text-sm ml-13">Theo dõi các bước thực hiện đồ án của bạn</p>
             </div>
             <div class="flex items-center gap-4">
-                <a href="/PHP-BCTH/public/student/notifications" class="relative p-2.5 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all"><i class="bi bi-bell text-xl"></i></a>
+                <a href="<?= $basePath ?>/student/notifications" class="relative p-2.5 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all"><i class="bi bi-bell text-xl"></i></a>
                 <div class="relative pl-4 border-l border-white/20">
-                    <?php $avatarPath = '/PHP-BCTH/public/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
+                    <?php $avatarPath = $basePath . '/images/avatars/' . ($_SESSION['username'] ?? 'default') . '.jpg'; ?>
                     <button onclick="toggleUserDropdown()" id="userBtn" class="bg-white/20 backdrop-blur rounded-full px-4 py-2 flex items-center gap-3 cursor-pointer hover:bg-white/30 transition-all">
                         <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow-lg bg-gradient-to-br from-rose-400 to-pink-500 flex items-center justify-center">
                             <img src="<?= $avatarPath ?>" alt="Avatar" class="w-full h-full object-cover" 
@@ -79,7 +80,7 @@ $progressPercent = count($steps) > 0 ? round(($completedSteps / count($steps)) *
                 </div>
                 <h2 class="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-3">Bạn chưa đăng ký đề tài</h2>
                 <p class="text-gray-500 mb-8 text-lg">Hãy đăng ký một đề tài để xem tiến trình thực hiện đồ án của bạn.</p>
-                <a href="/PHP-BCTH/public/student/topics" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-2xl hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all">
+                <a href="<?= $basePath ?>/student/topics" class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500 to-cyan-500 text-white font-semibold rounded-2xl hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-1 transition-all">
                     <i class="bi bi-journal-plus text-xl"></i>
                     Đăng ký đề tài ngay
                 </a>
@@ -248,12 +249,12 @@ $progressPercent = count($steps) > 0 ? round(($completedSteps / count($steps)) *
                                         </div>
                                         
                                         <?php if ($isCurrent && $step['step'] >= 2 && $step['step'] <= 5): ?>
-                                        <a href="/PHP-BCTH/public/student/progress" class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all">
+                                        <a href="<?= $basePath ?>/student/progress" class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-blue-500 to-cyan-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all">
                                             <i class="bi bi-pencil-square"></i>
                                             Báo cáo tiến độ ngay
                                         </a>
                                         <?php elseif ($isCurrent && $step['step'] === 6): ?>
-                                        <a href="/PHP-BCTH/public/student/submission" class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-violet-500/30 hover:-translate-y-0.5 transition-all">
+                                        <a href="<?= $basePath ?>/student/submission" class="mt-4 inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-violet-500 to-purple-500 text-white text-sm font-semibold rounded-xl hover:shadow-lg hover:shadow-violet-500/30 hover:-translate-y-0.5 transition-all">
                                             <i class="bi bi-cloud-upload"></i>
                                             Nộp đồ án ngay
                                         </a>

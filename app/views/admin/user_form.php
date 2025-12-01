@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $adminInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'A', 0, 1, 'UTF-8'), 'UTF-8');
 $isEdit = ($data['action'] ?? 'create') === 'edit';
 ?>
@@ -29,7 +30,7 @@ $isEdit = ($data['action'] ?? 'create') === 'edit';
                 </div>
                 <p class="text-white/80 text-sm"><?= $isEdit ? 'Cập nhật thông tin tài khoản' : 'Tạo tài khoản mới cho hệ thống' ?></p>
             </div>
-            <a href="/PHP-BCTH/public/admin/users" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-xl transition-all flex items-center gap-2">
+            <a href="<?= $basePath ?>/admin/users" class="px-4 py-2 bg-white/20 hover:bg-white/30 text-white font-medium rounded-xl transition-all flex items-center gap-2">
                 <i class="bi bi-arrow-left"></i> Quay lại
             </a>
         </div>
@@ -46,7 +47,7 @@ $isEdit = ($data['action'] ?? 'create') === 'edit';
                             Thông tin người dùng
                         </h3>
                     </div>
-                    <form method="POST" action="<?= $isEdit ? '/PHP-BCTH/public/admin/editUser/' . $data['user']['user_id'] : '/PHP-BCTH/public/admin/createUser' ?>" class="p-6 space-y-5">
+                    <form method="POST" action="<?= $isEdit ? '$basePath . '/admin/editUser/' . $data['user']['user_id'] : '$basePath . '/admin/createUser' ?>" class="p-6 space-y-5">
                         
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <div>
@@ -133,7 +134,7 @@ $isEdit = ($data['action'] ?? 'create') === 'edit';
                         </div>
                         
                         <div class="flex gap-3 pt-4 border-t border-gray-100">
-                            <a href="/PHP-BCTH/public/admin/users" class="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl text-center transition-all">
+                            <a href="<?= $basePath ?>/admin/users" class="flex-1 py-3 bg-gray-100 hover:bg-gray-200 text-gray-700 font-semibold rounded-xl text-center transition-all">
                                 <i class="bi bi-x-lg mr-2"></i>Hủy
                             </a>
                             <button type="submit" class="flex-1 py-3 bg-gradient-to-r from-blue-500 to-indigo-500 hover:from-blue-600 hover:to-indigo-600 text-white font-semibold rounded-xl shadow-lg transition-all">

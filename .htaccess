@@ -2,10 +2,6 @@ Options -Indexes
 
 RewriteEngine On
 
-# Nếu URL là gốc thì chuyển hướng đến public/
-RewriteCond %{REQUEST_URI} ^/PHP-BCTH/?$
-RewriteRule ^$ /PHP-BCTH/public/ [L,R=302]
-
 # Chuyển hướng tất cả request đến thư mục public
-RewriteCond %{REQUEST_URI} !^/PHP-BCTH/public/
-RewriteRule ^(.*)$ /PHP-BCTH/public/$1 [L]
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ public/$1 [L]

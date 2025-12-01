@@ -1,3 +1,6 @@
+<?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -20,14 +23,17 @@
             }
         }
         
+        // Base path for JavaScript
+        const basePath = '<?= $basePath ?>';
+        
         // Kiểm tra session mỗi 5 phút
         setInterval(function() {
-            fetch('/PHP-BCTH/public/auth/checkSession', { method: 'GET' })
+            fetch(basePath + '/auth/checkSession', { method: 'GET' })
                 .then(response => response.json())
                 .then(data => {
                     if (!data.valid) {
                         alert('Phiên đăng nhập đã hết hạn. Vui lòng đăng nhập lại.');
-                        window.location.href = '/PHP-BCTH/public/auth/login';
+                        window.location.href = basePath + '/auth/login';
                     }
                 })
                 .catch(() => {

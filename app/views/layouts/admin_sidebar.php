@@ -1,4 +1,5 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 $currentPage = $_GET['url'] ?? 'admin';
 $currentPage = explode('/', $currentPage);
 $activePage = $currentPage[1] ?? 'index';
@@ -18,7 +19,7 @@ $activePage = $currentPage[1] ?? 'index';
                 <i class="bi bi-list text-xl"></i>
             </button>
             <div class="w-11 h-11 bg-white rounded-xl p-1.5 shadow-lg">
-                <img src="/PHP-BCTH/public/images/logoTVU.png" alt="TVU" class="w-full h-full object-contain">
+                <img src="<?= $basePath ?>/images/logoTVU.png" alt="TVU" class="w-full h-full object-contain">
             </div>
             <div class="flex-1">
                 <h1 class="font-bold text-base bg-gradient-to-r from-amber-300 to-orange-400 bg-clip-text text-transparent">TVU Admin</h1>
@@ -50,19 +51,19 @@ $activePage = $currentPage[1] ?? 'index';
     <nav class="flex-1 p-4 space-y-1 overflow-y-auto custom-scrollbar">
         <p class="text-xs text-slate-500 uppercase tracking-wider mb-3 px-3 font-semibold">📊 Tổng quan</p>
         
-        <a href="/PHP-BCTH/public/admin" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'index' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/admin" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'index' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-speedometer2 text-lg"></i>
             <span>Dashboard</span>
         </a>
 
         <p class="text-xs text-slate-500 uppercase tracking-wider mt-6 mb-3 px-3 font-semibold">👥 Quản lý</p>
         
-        <a href="/PHP-BCTH/public/admin/users" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'users' || $activePage == 'createUser' || $activePage == 'editUser' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/admin/users" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'users' || $activePage == 'createUser' || $activePage == 'editUser' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-people-fill text-lg"></i>
             <span>Người dùng</span>
         </a>
         
-        <a href="/PHP-BCTH/public/admin/topics" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'topics' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/admin/topics" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'topics' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-journal-bookmark-fill text-lg"></i>
             <span>Đề tài</span>
             <?php if (isset($data['pending_topics']) && $data['pending_topics'] > 0): ?>
@@ -72,7 +73,7 @@ $activePage = $currentPage[1] ?? 'index';
 
         <p class="text-xs text-slate-500 uppercase tracking-wider mt-6 mb-3 px-3 font-semibold">⚙️ Cài đặt</p>
         
-        <a href="/PHP-BCTH/public/admin/timeSettings" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'timeSettings' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
+        <a href="<?= $basePath ?>/admin/timeSettings" class="nav-item flex items-center gap-3 px-4 py-3 rounded-xl transition-all <?= $activePage == 'timeSettings' ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-lg shadow-amber-500/30' : 'text-slate-300 hover:bg-white/5 hover:text-white' ?>">
             <i class="bi bi-clock-history text-lg"></i>
             <span>Thời gian đăng ký</span>
         </a>
@@ -80,7 +81,7 @@ $activePage = $currentPage[1] ?? 'index';
     
     <!-- Logout Button -->
     <div class="p-4 border-t border-white/10">
-        <a href="/PHP-BCTH/public/logout" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all">
+        <a href="<?= $basePath ?>/logout" class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-400 hover:bg-red-500/10 transition-all">
             <i class="bi bi-box-arrow-right text-lg"></i>
             <span>Đăng xuất</span>
         </a>

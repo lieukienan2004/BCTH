@@ -1,10 +1,11 @@
 <?php
+$basePath = defined('BASE_PATH') ? BASE_PATH : '';
 // Common variables for topbar
 $userInitial = mb_strtoupper(mb_substr($_SESSION['full_name'] ?? 'U', 0, 1, 'UTF-8'), 'UTF-8');
 $userName = $_SESSION['full_name'] ?? 'Sinh viên';
 ?>
 <div class="flex items-center gap-4">
-    <a href="/PHP-BCTH/public/student/notifications" class="relative p-3 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">
+    <a href="<?= $basePath ?>/student/notifications" class="relative p-3 text-white/80 hover:text-white hover:bg-white/10 rounded-xl transition-all">
         <i class="bi bi-bell text-xl"></i>
         <span class="absolute top-2 right-2 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
     </a>
