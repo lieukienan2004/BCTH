@@ -30,7 +30,7 @@ $basePath = $isProduction ? '' : '/PHP-BCTH/public';
             
             <!-- Logo -->
             <div class="w-36 h-36 bg-white rounded-full p-4 shadow-xl mb-6">
-                <img src="<?= $basePath ?>/images/logoTVU.png" alt="Logo TVU" class="w-full h-full object-contain">
+                <img src="<?= $isProduction ? '/public/images/logoTVU.png' : $basePath . '/images/logoTVU.png' ?>" alt="Logo TVU" class="w-full h-full object-contain">
             </div>
             
             <!-- Text -->
